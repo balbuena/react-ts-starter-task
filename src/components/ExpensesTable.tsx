@@ -25,7 +25,7 @@ const ExpensesTable = ({ data }:{ data: IExpenses[] }) => {
             </thead>
             <tbody>
                 {
-                data?.length >= 0 ? sortedExpenses?.map((r: IExpenses) => (
+                data?.length > 0 ? sortedExpenses?.map((r: IExpenses) => (
                     <tr key={r.id}>
                         <td align="left">{r.id}</td>
                         <td align="left">{dayjs(r.date).format('HH:mm - DD/MM/YYYY')}</td>
@@ -33,7 +33,7 @@ const ExpensesTable = ({ data }:{ data: IExpenses[] }) => {
                         <td align="left">{r.merchant}</td>
                         <td align="left">{capitalizeFirstLetter(r.category)}</td>
                     </tr>
-                )) : <tr><td colSpan={5} align='center'>No results</td></tr>
+                )) : <tr><td colSpan={5} style={{ textAlign: 'center' }}>NO RESULTS</td></tr>
                 }
             </tbody>
         </table>
